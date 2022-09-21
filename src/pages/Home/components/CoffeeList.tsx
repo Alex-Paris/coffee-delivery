@@ -1,3 +1,4 @@
+import { COFFEES } from '../../../utils/coffees'
 import { CoffeeItem } from './CoffeeItem'
 
 export function CoffeeList() {
@@ -9,10 +10,9 @@ export function CoffeeList() {
         </h2>
       </div>
       <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 lg:gap-x-8 xl:gap-x-4 2xl:gap-x-8 gap-y-10">
-        <CoffeeItem />
-        <CoffeeItem />
-        <CoffeeItem />
-        <CoffeeItem />
+        {COFFEES.map((coffee) => (
+          <CoffeeItem key={coffee.id} coffee={coffee} />
+        ))}
       </div>
     </section>
   )
