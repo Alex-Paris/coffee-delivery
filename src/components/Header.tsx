@@ -8,13 +8,13 @@ export function Header() {
       <img className="h-10" src={logoImg} alt="" />
 
       <nav className="flex items-center justify-end gap-3">
-        <div className="flex items-center gap-1 rounded-md font-normal bg-purple-light text-purple-dark p-2 ">
+        <div className="flex items-center gap-1 rounded-md font-normal bg-purple-light text-purple-dark p-2">
           <MapPin size={22} weight="fill" />
           <span>Maringá, PR</span>
         </div>
-        <div className="rounded-md bg-yellow-light text-yellow-dark p-2 ">
+        <a className="rounded-md bg-yellow-light hover:bg-yellow hover:bg-opacity-50 text-yellow-dark p-2 cursor-pointer">
           <ShoppingCart size={22} weight="fill" />
-        </div>
+        </a>
       </nav>
     </header>
   )

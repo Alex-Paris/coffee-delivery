@@ -2,7 +2,10 @@ import { ShoppingCart, Timer, Package, Coffee } from 'phosphor-react'
 
 export function Intro() {
   return (
-    <div className="flex items-start justify-between py-24 gap-14">
+    <section
+      id="intro"
+      className="flex items-start justify-between py-24 gap-14"
+    >
       <div>
         <div className="flex">
           <div>
@@ -52,6 +55,6 @@ export function Intro() {
         src="/coffee-logo.svg"
         alt=""
       />
-    </div>
+    </section>
   )
 }
