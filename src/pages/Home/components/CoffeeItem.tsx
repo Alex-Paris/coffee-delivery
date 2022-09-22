@@ -1,8 +1,10 @@
 import { ShoppingCartSimple } from 'phosphor-react'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
 import cartBorded from '../../../assets/shopping-cart-border.svg'
+import { CartContext } from '../../../context/CartContext'
 import { formatterValue } from '../../../utils/formatterValue'
+
 import { Tag } from './button/Tag'
 import { CoffeeQuantity } from './CoffeeQuantity'
 
@@ -22,18 +24,25 @@ interface CoffeeItemProps {
 export function CoffeeItem({ coffee }: CoffeeItemProps) {
   const [quantity, setQuantity] = useState(1)
 
+  const { addCartItem } = useContext(CartContext)
+
   const coffeeValue = formatterValue.format(coffee.price)
 
-  function plusQuantity() {
+  function onPlusQuantity() {
     if (quantity < 99) {
       setQuantity(quantity + 1)
     }
   }
 
-  function subtractQuantity() {
+  function onSubtractQuantity() {
     if (quantity > 1) {
       setQuantity(quantity - 1)
     }
+  }
+
+  function handleBuyCoffee() {
+    addCartItem(coffee.id, quantity)
+    setQuantity(1)
   }
 
   return (
@@ -63,10 +72,13 @@ export function CoffeeItem({ coffee }: CoffeeItemProps) {
           <div className="flex items-center justify-center gap-2">
             <CoffeeQuantity
               quantity={quantity}
-              plusQuantity={plusQuantity}
-              subtractQuantity={subtractQuantity}
+              plusQuantity={onPlusQuantity}
+              subtractQuantity={onSubtractQuantity}
             />
-            <button className="group bg-purple-dark hover:bg-purple rounded-md p-2">
+            <button
+              onClick={handleBuyCoffee}
+              className="group bg-purple-dark hover:bg-purple transition rounded-md p-2"
+            >
               <ShoppingCartSimple
                 className="w-[1.375rem] h-[1.375rem] text-base-card group-hover:hidden"
                 weight="fill"

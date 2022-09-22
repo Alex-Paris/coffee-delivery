@@ -12,7 +12,7 @@ export function Header() {
           <MapPin size={22} weight="fill" />
           <span>Maringá, PR</span>
         </div>
-        <a className="rounded-md bg-yellow-light hover:bg-yellow hover:bg-opacity-50 text-yellow-dark p-2 cursor-pointer">
+        <a className="rounded-md bg-yellow-light hover:bg-yellow hover:bg-opacity-50 transition text-yellow-dark p-2 cursor-pointer">
           <ShoppingCart size={22} weight="fill" />
         </a>
       </nav>
