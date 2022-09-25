@@ -10,7 +10,7 @@ export function CoffeeList() {
           Nossos cafés
         </h2>
       </div>
-      <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 lg:gap-x-8 xl:gap-x-4 2xl:gap-x-8 gap-y-10">
+      <div className="mt-14 grid justify-center sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 lg:gap-x-8 xl:gap-x-4 2xl:gap-x-8 gap-y-10">
         {COFFEES.map((coffee) => (
           <CoffeeItem key={coffee.id} coffee={coffee} />
         ))}

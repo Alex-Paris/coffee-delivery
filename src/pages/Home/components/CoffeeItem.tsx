@@ -46,7 +46,7 @@ export function CoffeeItem({ coffee }: CoffeeItemProps) {
   }
 
   return (
-    <article className="bg-base-card rounded-card flex flex-col items-center justify-center">
+    <article className="max-w-sm bg-base-card rounded-card flex flex-col items-center justify-center">
       <img
         className="w-32 h-32 top-[-20px] relative"
         src={coffee.urlImage}

@@ -2,7 +2,7 @@ import { CheckoutList } from '../../components/CheckoutList'
 
 import { Address } from './components/Address'
 import { Payment } from './components/Payment'
-// 7 e representa 4
+
 export function Checkout() {
   return (
     <main className="grid grid-cols-percent60 py-10 gap-8">
