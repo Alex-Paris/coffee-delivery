@@ -2,11 +2,11 @@ import { ShoppingCartSimple } from 'phosphor-react'
 import { useContext, useState } from 'react'
 
 import cartBorded from '../../../assets/shopping-cart-border.svg'
+import { CoffeeQuantity } from '../../../components/CoffeeQuantity'
 import { CartContext } from '../../../context/CartContext'
 import { formatterValue } from '../../../utils/formatterValue'
 
 import { Tag } from './button/Tag'
-import { CoffeeQuantity } from './CoffeeQuantity'
 
 interface Coffee {
   id: number

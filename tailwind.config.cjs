@@ -35,9 +35,11 @@ module.exports = {
       },
       gridTemplateColumns: {
         fill: 'auto 1fr',
+        percent60: '5fr 3fr',
       },
       borderRadius: {
         card: '6px 36px',
+        coffeeCard: '6px 44px',
       },
     },
   },

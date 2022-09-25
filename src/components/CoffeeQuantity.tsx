@@ -15,7 +15,7 @@ export function CoffeeQuantity({
     <div className="flex items-center justify-center bg-base-button rounded-md p-2 gap-1">
       <button onClick={subtractQuantity}>
         <Minus
-          className="text-purple hover:text-purple-dark"
+          className="text-purple transition hover:text-purple-dark"
           weight="bold"
           size={14}
         />
@@ -25,7 +25,7 @@ export function CoffeeQuantity({
       </span>
       <button onClick={plusQuantity}>
         <Plus
-          className="text-purple hover:text-purple-dark"
+          className="text-purple transition hover:text-purple-dark"
           weight="bold"
           size={14}
         />

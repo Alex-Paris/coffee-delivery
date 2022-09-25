@@ -4,8 +4,8 @@ import { Button } from '../../../components/Button'
 
 export function Payment() {
   return (
-    <section id="payment" className="flex flex-col items-start">
-      <div className="bg-base-card rounded-md p-10 mt-3">
+    <section id="payment" className="w-full flex flex-col items-start">
+      <div className="w-full bg-base-card rounded-md p-10 mt-3">
         <div className="flex mb-8 gap-3">
           <CurrencyDollar className="text-purple" size={22} />
           <div>

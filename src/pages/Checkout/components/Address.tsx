@@ -4,12 +4,12 @@ import { Input } from '../../../components/Input'
 
 export function Address() {
   return (
-    <section id="address" className="flex flex-col items-start">
-      <h3 className="font-cursive font-bold leading-adapted text-lg">
+    <section id="address" className="w-full flex flex-col items-start">
+      <h3 className="w-full font-cursive font-bold leading-adapted text-lg">
         Complete seu pedido
       </h3>
 
-      <div className="bg-base-card rounded-md p-10 mt-4">
+      <div className="w-full bg-base-card rounded-md p-10 mt-4">
         <div className="flex mb-8 gap-3">
           <MapPinLine className="text-yellow-dark" size={22} />
           <div>
