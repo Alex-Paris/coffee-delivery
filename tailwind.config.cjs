@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./index.html', './src/**/*.tsx'],
+  content: ['./index.html', './src/**/*.{tsx, ts}'],
   theme: {
     fontFamily: {
       sans: ['Roboto', 'sans-serif'],
@@ -8,6 +8,9 @@ module.exports = {
     extend: {
       fontFamily: {
         cursive: ['"Baloo 2"', 'cursive'],
+      },
+      lineHeight: {
+        adapted: '130%',
       },
       backgroundImage: {
         coffee: "url('/coffee-logo.svg')",

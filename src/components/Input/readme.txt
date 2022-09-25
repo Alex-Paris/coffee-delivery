@@ -1,0 +1,1 @@
+Just a second way of doing a tailwind file style with props
