@@ -9,7 +9,7 @@ export function Address() {
         Complete seu pedido
       </h3>
 
-      <div className="w-full bg-base-card rounded-md p-10 mt-4">
+      <div className="w-full max-w-3xl bg-base-card rounded-md p-5 sm:p-7 2xl:p-10 mt-4">
         <div className="flex mb-8 gap-3">
           <MapPinLine className="text-yellow-dark" size={22} />
           <div>
@@ -25,9 +25,9 @@ export function Address() {
         <form className="flex flex-col gap-4" action="">
           <Input containerStyle={['w-52']} name="cep" placeholder="CEP" />
           <Input name="street" placeholder="Rua" />
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             <Input
-              containerStyle={['w-52']}
+              containerStyle={['flex-1', 'sm:w-52']}
               name="number"
               placeholder="Número"
             />
@@ -38,22 +38,24 @@ export function Address() {
               optional
             />
           </div>
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             <Input
-              containerStyle={['w-52']}
+              containerStyle={['flex-1', 'sm:w-52']}
               name="district"
               placeholder="Bairro"
             />
-            <Input
-              containerStyle={['flex-1']}
-              name="city"
-              placeholder="Cidade"
-            />
-            <Input
-              containerStyle={['w-[3.75rem]']}
-              name="uf"
-              placeholder="UF"
-            />
+            <div className="flex flex-row flex-1 gap-3">
+              <Input
+                containerStyle={['flex-1']}
+                name="city"
+                placeholder="Cidade"
+              />
+              <Input
+                containerStyle={['w-[3.75rem]']}
+                name="uf"
+                placeholder="UF"
+              />
+            </div>
           </div>
         </form>
       </div>

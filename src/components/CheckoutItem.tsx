@@ -4,7 +4,7 @@ import { CoffeeQuantity } from './CoffeeQuantity'
 
 export function CheckoutItem() {
   return (
-    <article className="flex justify-between">
+    <article className="w-full flex justify-between">
       <div className="flex gap-5">
         <img className="w-16 h-16" src="/products/coffee-2.svg" alt="" />
         <div className="h-full flex flex-col ">
@@ -28,7 +28,9 @@ export function CheckoutItem() {
           </div>
         </div>
       </div>
-      <p className="font-bold text-base-text leading-adapted">R$ 1,99</p>
+      <p className="font-bold text-base-text text-right leading-adapted">
+        R$ 1,99
+      </p>
     </article>
   )
 }
