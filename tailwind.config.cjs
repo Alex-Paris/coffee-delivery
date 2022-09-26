@@ -39,6 +39,7 @@ module.exports = {
       },
       borderRadius: {
         card: '6px 36px',
+        'inside-card': '4px 34px',
         coffeeCard: '6px 44px',
       },
     },

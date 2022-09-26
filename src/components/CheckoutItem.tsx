@@ -1,5 +1,6 @@
 import { Trash } from 'phosphor-react'
 import { useContext } from 'react'
+import { toast } from 'react-toastify'
 
 import { CartContext, CartItem } from '../context/CartContext'
 import { COFFEES } from '../utils/coffees'
@@ -33,6 +34,11 @@ export function CheckoutItem({ cartItem }: CheckoutItemProps) {
     }
   }
 
+  function handleRemoveItem() {
+    removeCartItem(product.id)
+    toast.success(`${product.title} removido`)
+  }
+
   return (
     <article className="w-full flex justify-between">
       <div className="flex gap-5">
@@ -48,7 +54,7 @@ export function CheckoutItem({ cartItem }: CheckoutItemProps) {
               subtractQuantity={onSubtractQuantity}
             />
             <button
-              onClick={() => removeCartItem(product.id)}
+              onClick={handleRemoveItem}
               className="flex items-center bg-base-button rounded-md text-xs text-base-text leading-[160%] p-2 gap-1 transition hover:bg-base-hover"
             >
               <Trash className="text-purple" size={16} />

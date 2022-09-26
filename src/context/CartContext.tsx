@@ -1,20 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
 
-// interface Item {
-//   id: number
-//   title: string
-//   description: string
-//   price: number
-//   urlImage: string
-//   tags: string[]
-// }
-
-/*
-  clicar em cart
-  envia quantidade e codigo para listagem do cart
-  reduce para exibir no top cart button (Que fica no header)
-*/
-
 export interface CartItem {
   itemId: number
   quantity: number

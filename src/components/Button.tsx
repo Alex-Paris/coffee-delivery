@@ -3,12 +3,19 @@ import { ButtonHTMLAttributes, ReactNode } from 'react'
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode
   description: string
+  isActive: boolean
 }
 
-export function Button({ children, description, ...rest }: ButtonProps) {
+export function Button({
+  children,
+  description,
+  isActive,
+  ...rest
+}: ButtonProps) {
   return (
     <button
-      className="group w-full flex items-center bg-base-button rounded-md p-4 transition gap-3 hover:bg-base-hover active:bg-purple-light border border-solid active:border-purple"
+      // eslint-disable-next-line prettier/prettier
+      className={`group w-full flex items-center rounded-md p-4 transition gap-3 hover:bg-base-hover border border-solid ${!isActive ? 'bg-base-button' : 'bg-purple-light border-purple'}`}
       {...rest}
     >
       {children}

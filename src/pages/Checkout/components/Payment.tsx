@@ -1,8 +1,15 @@
 import { CurrencyDollar, CreditCard, Bank, Money } from 'phosphor-react'
+import { useState } from 'react'
 
 import { Button } from '../../../components/Button'
 
 export function Payment() {
+  const [paymentSelected, setPaymentSelected] = useState('')
+
+  function handleSelectPayment(method: string) {
+    setPaymentSelected(method)
+  }
+
   return (
     <section id="payment" className="w-full flex flex-col items-start">
       <div className="w-full max-w-3xl bg-base-card rounded-md p-5 sm:p-7 2xl:p-10 mt-3">
@@ -17,13 +24,25 @@ export function Payment() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <Button description="CARTÃO DE CRÉDITO">
+          <Button
+            description="CARTÃO DE CRÉDITO"
+            isActive={paymentSelected === 'CARTÃO DE CRÉDITO'}
+            onClick={() => handleSelectPayment('CARTÃO DE CRÉDITO')}
+          >
             <CreditCard className="text-purple" size={16} />
           </Button>
-          <Button description="CARTÃO DE DÉBITO">
+          <Button
+            description="CARTÃO DE DÉBITO"
+            isActive={paymentSelected === 'CARTÃO DE DÉBITO'}
+            onClick={() => handleSelectPayment('CARTÃO DE DÉBITO')}
+          >
             <Bank className="text-purple" size={16} />
           </Button>
-          <Button description="DINHEIRO">
+          <Button
+            description="DINHEIRO"
+            isActive={paymentSelected === 'DINHEIRO'}
+            onClick={() => handleSelectPayment('DINHEIRO')}
+          >
             <Money className="text-purple" size={16} />
           </Button>
         </div>
