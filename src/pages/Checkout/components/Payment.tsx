@@ -24,22 +24,22 @@ export function Payment({ paymentSelected, onSelectPayment }: PaymentProps) {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <Button
             description="CARTÃO DE CRÉDITO"
-            isActive={paymentSelected === 'CARTÃO DE CRÉDITO'}
-            onClick={() => onSelectPayment('CARTÃO DE CRÉDITO')}
+            isActive={paymentSelected === 'Cartão de Crédito'}
+            onClick={() => onSelectPayment('Cartão de Crédito')}
           >
             <CreditCard className="text-purple" size={16} />
           </Button>
           <Button
             description="CARTÃO DE DÉBITO"
-            isActive={paymentSelected === 'CARTÃO DE DÉBITO'}
-            onClick={() => onSelectPayment('CARTÃO DE DÉBITO')}
+            isActive={paymentSelected === 'Cartão de Débito'}
+            onClick={() => onSelectPayment('Cartão de Débito')}
           >
             <Bank className="text-purple" size={16} />
           </Button>
           <Button
             description="DINHEIRO"
-            isActive={paymentSelected === 'DINHEIRO'}
-            onClick={() => onSelectPayment('DINHEIRO')}
+            isActive={paymentSelected === 'Dinheiro'}
+            onClick={() => onSelectPayment('Dinheiro')}
           >
             <Money className="text-purple" size={16} />
           </Button>

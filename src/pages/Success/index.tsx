@@ -1,8 +1,22 @@
 import { MapPin, Timer, CurrencyDollar } from 'phosphor-react'
+import { useLocation } from 'react-router-dom'
 
 import deliverImg from '../../assets/delivery-guy.svg'
 
+interface SuccessProps {
+  street: string
+  number: string
+  district: string
+  city: string
+  uf: string
+  paymentMethod: string
+}
+
 export function Success() {
+  const { state } = useLocation()
+
+  const data = state as SuccessProps
+
   return (
     <main>
       <div className="pt-20">
@@ -24,9 +38,9 @@ export function Success() {
                 <p className="text-base-text leading-adapted">
                   Entrega em{' '}
                   <span className="font-bold">
-                    Rua João Daniel Martinelli, 102
+                    {data.street}, {data.number}
                   </span>
-                  <br /> Farrapos - Porto Alegre, RS
+                  <br /> {data.district} - {data.city}, {data.uf}
                 </p>
               </div>
             </div>
@@ -56,7 +70,7 @@ export function Success() {
                 <p className="text-base-text leading-adapted">
                   Pagamento na entrega
                   <br />
-                  <span className="font-bold">Cartão de Crédito</span>
+                  <span className="font-bold">{data.paymentMethod}</span>
                 </p>
               </div>
             </div>

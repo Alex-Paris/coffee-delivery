@@ -1,10 +1,12 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import zod from 'zod'
 
 import { CheckoutList } from '../../components/CheckoutList'
+import { CartContext } from '../../context/CartContext'
 
 import { Address } from './components/Address'
 import { Payment } from './components/Payment'
@@ -24,6 +26,9 @@ type FormData = zod.infer<typeof formValidationSchema>
 export function Checkout() {
   const [paymentSelected, setPaymentSelected] = useState('')
 
+  const navigate = useNavigate()
+  const { emptyCart } = useContext(CartContext)
+
   const addressForm = useForm<FormData>({
     resolver: zodResolver(formValidationSchema),
     defaultValues: {
@@ -37,12 +42,23 @@ export function Checkout() {
     setPaymentSelected(method)
   }
 
-  function onSubmit() {
+  function onSubmit(data: FormData) {
     if (paymentSelected === '') {
       toast.error('Necessário informar meio de pagamento')
       return
     }
-    alert('shutup')
+
+    emptyCart()
+    navigate('/success', {
+      state: {
+        street: data.street,
+        number: data.number,
+        district: data.district,
+        city: data.city,
+        uf: data.uf,
+        paymentMethod: paymentSelected,
+      },
+    })
   }
 
   return (
