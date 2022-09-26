@@ -3,7 +3,6 @@ import { useCallback, useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 import logoImg from '../assets/logo.svg'
-import { twStyle } from '../utils/twStyle'
 
 export function Header() {
   const [windowScroll, setWindowScroll] = useState(false)
@@ -26,22 +25,8 @@ export function Header() {
 
   return (
     <header
-      className={twStyle([
-        'bg-background',
-        'z-[100]',
-        'fixed',
-        'w-full',
-        'left-0',
-        'px-5',
-        'sm:px-16',
-        'md:px-28',
-        'lg:px-32',
-        'xl:px-40',
-        'flex',
-        'items-center',
-        'justify-center',
-        windowScroll ? 'shadow-sm' : '',
-      ])}
+      // eslint-disable-next-line prettier/prettier
+      className={`bg-background z-[100] fixed w-full left-0 px-5 sm:px-16 md:px-28 lg:px-32 xl:px-40 flex items-center justify-center ${windowScroll && 'shadow-sm'}`}
     >
       <div className="flex-1 max-w-screen-xl flex items-center justify-between my-8">
         <NavLink to="/" title="home">

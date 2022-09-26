@@ -22,42 +22,58 @@ export function Address() {
           </div>
         </div>
 
-        <form className="flex flex-col gap-4" action="">
-          <Input containerStyle={['w-52']} name="cep" placeholder="CEP" />
-          <Input name="street" placeholder="Rua" />
+        <div className="flex flex-col gap-1">
+          <Input
+            containerStyle=/*tw*/"w-52"
+            id="cep"
+            placeholder="CEP"
+            type="text"
+            formId="cep"
+          />
+          <Input id="street" placeholder="Rua" type="text" formId="street" />
           <div className="flex flex-col sm:flex-row gap-3">
             <Input
-              containerStyle={['flex-1', 'sm:w-52']}
-              name="number"
+              containerStyle=/*tw*/"w-full sm:w-52"
+              id="number"
               placeholder="Número"
+              type="text"
+              formId="number"
             />
             <Input
-              containerStyle={['flex-1']}
-              name="complement"
+              containerStyle=/*tw*/"w-full"
+              id="complement"
               placeholder="Complemento"
               optional
+              type="text"
+              formId="complement"
             />
           </div>
           <div className="flex flex-col sm:flex-row gap-3">
             <Input
-              containerStyle={['flex-1', 'sm:w-52']}
-              name="district"
+              containerStyle=/*tw*/"w-full sm:w-52"
+              id="district"
               placeholder="Bairro"
+              type="text"
+              formId="district"
             />
             <div className="flex flex-row flex-1 gap-3">
               <Input
-                containerStyle={['flex-1']}
-                name="city"
+                containerStyle=/*tw*/"w-full"
+                id="city"
                 placeholder="Cidade"
+                type="text"
+                formId="city"
               />
               <Input
-                containerStyle={['w-[3.75rem]']}
-                name="uf"
+                containerStyle=/*tw*/"w-[3.75rem]"
+                id="uf"
                 placeholder="UF"
+                type="text"
+                formId="uf"
               />
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </section>
   )

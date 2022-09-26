@@ -57,7 +57,10 @@ export function CheckoutList() {
           </div>
         </div>
 
-        <button className="bg-yellow rounded-md px-2 py-3 text-sm text-white font-bold leading-[160%] transition hover:bg-yellow-dark">
+        <button
+          type="submit"
+          className="bg-yellow rounded-md px-2 py-3 text-sm text-white font-bold leading-[160%] transition hover:bg-yellow-dark"
+        >
           CONFIRMAR PEDIDO
         </button>
       </div>
