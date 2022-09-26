@@ -1,28 +1,67 @@
 import { MapPin, ShoppingCart } from 'phosphor-react'
+import { useCallback, useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 import logoImg from '../assets/logo.svg'
+import { twStyle } from '../utils/twStyle'
 
 export function Header() {
-  return (
-    <header className="flex items-center justify-between my-8">
-      <NavLink to="/" title="home">
-        <img className="h-10" src={logoImg} alt="" />
-      </NavLink>
+  const [windowScroll, setWindowScroll] = useState(false)
 
-      <nav className="flex items-center justify-end gap-3">
-        <div className="flex items-center gap-1 rounded-md font-normal bg-purple-light text-purple-dark p-2">
-          <MapPin size={22} weight="fill" />
-          <span>Maringá, PR</span>
-        </div>
-        <NavLink
-          to="/checkout"
-          title="checkout"
-          className="rounded-md bg-yellow-light hover:bg-yellow hover:bg-opacity-50 transition text-yellow-dark p-2 cursor-pointer"
-        >
-          <ShoppingCart size={22} weight="fill" />
+  const handleScroll = useCallback(() => {
+    if (scrollY > 90) {
+      setWindowScroll(true)
+      return
+    }
+    setWindowScroll(false)
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [handleScroll])
+
+  return (
+    <header
+      className={twStyle([
+        'bg-background',
+        'z-[100]',
+        'fixed',
+        'w-full',
+        'left-0',
+        'px-5',
+        'sm:px-16',
+        'md:px-28',
+        'lg:px-32',
+        'xl:px-40',
+        'flex',
+        'items-center',
+        'justify-center',
+        windowScroll ? 'shadow-sm' : '',
+      ])}
+    >
+      <div className="flex-1 max-w-screen-xl flex items-center justify-between my-8">
+        <NavLink to="/" title="home">
+          <img className="h-10" src={logoImg} alt="" />
         </NavLink>
-      </nav>
+
+        <nav className="flex items-center justify-end gap-3">
+          <div className="flex items-center gap-1 rounded-md font-normal bg-purple-light text-purple-dark p-2">
+            <MapPin size={22} weight="fill" />
+            <span>Maringá, PR</span>
+          </div>
+          <NavLink
+            to="/checkout"
+            title="checkout"
+            className="rounded-md bg-yellow-light hover:bg-yellow hover:bg-opacity-50 transition text-yellow-dark p-2 cursor-pointer"
+          >
+            <ShoppingCart size={22} weight="fill" />
+          </NavLink>
+        </nav>
+      </div>
     </header>
   )
 }
