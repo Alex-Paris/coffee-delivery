@@ -9,11 +9,14 @@ import { CheckoutItem } from './CheckoutItem'
 export function CheckoutList() {
   const { cartItems } = useContext(CartContext)
 
-  const totalValue = cartItems.reduce(
-    (sum, item) => sum + item.quantity * COFFEES[item.itemId].price,
-    0,
-  )
+  let totalValue = 0
 
+  if (cartItems) {
+    totalValue = cartItems.reduce(
+      (sum, item) => sum + item.quantity * COFFEES[item.itemId - 1].price,
+      0,
+    )
+  }
   const totalValueFormatted = formatterValueCurrency.format(totalValue)
 
   const totalValueWithDeliverTax = formatterValueCurrency.format(
@@ -23,12 +26,13 @@ export function CheckoutList() {
   return (
     <div className="w-full max-w-3xl bg-base-card rounded-coffeeCard  p-5 sm:p-7 2xl:p-10 mt-4">
       <div className="flex flex-col gap-6">
-        {cartItems.map((item) => (
-          <div className="flex flex-col gap-6" key={item.itemId}>
-            <CheckoutItem />
-            <hr />
-          </div>
-        ))}
+        {!!cartItems &&
+          cartItems.map((item) => (
+            <div className="flex flex-col gap-6" key={item.itemId}>
+              <CheckoutItem cartItem={item} />
+              <hr />
+            </div>
+          ))}
 
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between">

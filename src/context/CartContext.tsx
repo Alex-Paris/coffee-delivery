@@ -15,7 +15,7 @@ import { createContext, ReactNode, useEffect, useState } from 'react'
   reduce para exibir no top cart button (Que fica no header)
 */
 
-interface CartItem {
+export interface CartItem {
   itemId: number
   quantity: number
 }
