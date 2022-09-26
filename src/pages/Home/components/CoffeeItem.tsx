@@ -1,5 +1,6 @@
 import { ShoppingCartSimple } from 'phosphor-react'
 import { useContext, useState } from 'react'
+import { toast } from 'react-toastify'
 
 import cartBorded from '../../../assets/shopping-cart-border.svg'
 import { CoffeeQuantity } from '../../../components/CoffeeQuantity'
@@ -43,6 +44,7 @@ export function CoffeeItem({ coffee }: CoffeeItemProps) {
   function handleBuyCoffee() {
     addCartItem(coffee.id, quantity)
     setQuantity(1)
+    toast.success(`${coffee.title} adicionado na lista`)
   }
 
   return (
