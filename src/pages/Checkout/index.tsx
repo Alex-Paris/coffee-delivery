@@ -1,5 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 import zod from 'zod'
 
 import { CheckoutList } from '../../components/CheckoutList'
@@ -20,6 +22,8 @@ const formValidationSchema = zod.object({
 type FormData = zod.infer<typeof formValidationSchema>
 
 export function Checkout() {
+  const [paymentSelected, setPaymentSelected] = useState('')
+
   const addressForm = useForm<FormData>({
     resolver: zodResolver(formValidationSchema),
     defaultValues: {
@@ -29,8 +33,16 @@ export function Checkout() {
 
   const { handleSubmit } = addressForm
 
+  function onSelectPayment(method: string) {
+    setPaymentSelected(method)
+  }
+
   function onSubmit() {
-    alert('oi')
+    if (paymentSelected === '') {
+      toast.error('Necessário informar meio de pagamento')
+      return
+    }
+    alert('shutup')
   }
 
   return (
@@ -44,7 +56,10 @@ export function Checkout() {
           <div className="w-full max-w-3xl">
             <Address />
 
-            <Payment />
+            <Payment
+              paymentSelected={paymentSelected}
+              onSelectPayment={onSelectPayment}
+            />
           </div>
           <div className="w-full max-w-3xl row-[1] xl:row-auto">
             <h3 className="w-full font-cursive font-bold leading-adapted text-lg">

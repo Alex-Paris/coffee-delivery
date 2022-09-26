@@ -16,6 +16,7 @@ export function Button({
     <button
       // eslint-disable-next-line prettier/prettier
       className={`group w-full flex items-center rounded-md p-4 transition gap-3 hover:bg-base-hover border border-solid ${!isActive ? 'bg-base-button' : 'bg-purple-light border-purple'}`}
+      type="button"
       {...rest}
     >
       {children}

@@ -1,15 +1,13 @@
 import { CurrencyDollar, CreditCard, Bank, Money } from 'phosphor-react'
-import { useState } from 'react'
 
 import { Button } from '../../../components/Button'
 
-export function Payment() {
-  const [paymentSelected, setPaymentSelected] = useState('')
+interface PaymentProps {
+  paymentSelected: string
+  onSelectPayment: (method: string) => void
+}
 
-  function handleSelectPayment(method: string) {
-    setPaymentSelected(method)
-  }
-
+export function Payment({ paymentSelected, onSelectPayment }: PaymentProps) {
   return (
     <section id="payment" className="w-full flex flex-col items-start">
       <div className="w-full max-w-3xl bg-base-card rounded-md p-5 sm:p-7 2xl:p-10 mt-3">
@@ -27,21 +25,21 @@ export function Payment() {
           <Button
             description="CARTÃO DE CRÉDITO"
             isActive={paymentSelected === 'CARTÃO DE CRÉDITO'}
-            onClick={() => handleSelectPayment('CARTÃO DE CRÉDITO')}
+            onClick={() => onSelectPayment('CARTÃO DE CRÉDITO')}
           >
             <CreditCard className="text-purple" size={16} />
           </Button>
           <Button
             description="CARTÃO DE DÉBITO"
             isActive={paymentSelected === 'CARTÃO DE DÉBITO'}
-            onClick={() => handleSelectPayment('CARTÃO DE DÉBITO')}
+            onClick={() => onSelectPayment('CARTÃO DE DÉBITO')}
           >
             <Bank className="text-purple" size={16} />
           </Button>
           <Button
             description="DINHEIRO"
             isActive={paymentSelected === 'DINHEIRO'}
-            onClick={() => handleSelectPayment('DINHEIRO')}
+            onClick={() => onSelectPayment('DINHEIRO')}
           >
             <Money className="text-purple" size={16} />
           </Button>
