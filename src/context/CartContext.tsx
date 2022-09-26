@@ -41,6 +41,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     if (storedDateAsJSON) {
       return JSON.parse(storedDateAsJSON)
     }
+
+    return []
   })
 
   function addCartItem(itemId: number, amount: number) {
