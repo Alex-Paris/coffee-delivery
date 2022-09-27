@@ -1,11 +1,14 @@
 import { MapPin, ShoppingCart } from 'phosphor-react'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useContext, useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 import logoImg from '../assets/logo.svg'
+import { CartContext } from '../context/CartContext'
 
 export function Header() {
   const [windowScroll, setWindowScroll] = useState(false)
+
+  const { cartItems } = useContext(CartContext)
 
   const handleScroll = useCallback(() => {
     if (scrollY > 90) {
@@ -22,6 +25,8 @@ export function Header() {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [handleScroll])
+
+  const cartItemsAmount = cartItems.length
 
   return (
     <header
@@ -41,9 +46,14 @@ export function Header() {
           <NavLink
             to="/checkout"
             title="checkout"
-            className="rounded-md bg-yellow-light hover:bg-yellow hover:bg-opacity-50 transition text-yellow-dark p-2 cursor-pointer"
+            className="relative rounded-md bg-yellow-light hover:bg-yellow hover:bg-opacity-50 transition text-yellow-dark p-2 cursor-pointer"
           >
             <ShoppingCart size={22} weight="fill" />
+            {cartItemsAmount > 0 && (
+              <span className="-top-1/4 -right-1/4 absolute flex items-center justify-center w-5 h-5 bg-yellow-dark rounded-full font-bold text-xs text-white leading-adapted">
+                {cartItemsAmount}
+              </span>
+            )}
           </NavLink>
         </nav>
       </div>

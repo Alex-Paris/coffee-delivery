@@ -27,7 +27,7 @@ export function Checkout() {
   const [paymentSelected, setPaymentSelected] = useState('')
 
   const navigate = useNavigate()
-  const { emptyCart } = useContext(CartContext)
+  const { cartItems, emptyCart } = useContext(CartContext)
 
   const addressForm = useForm<FormData>({
     resolver: zodResolver(formValidationSchema),
@@ -45,6 +45,13 @@ export function Checkout() {
   function onSubmit(data: FormData) {
     if (paymentSelected === '') {
       toast.error('Necessário informar meio de pagamento')
+      return
+    }
+
+    if (cartItems.length === 0) {
+      toast.error(
+        'Carrinho sem items. Adicione algum produto no nosso catálogo',
+      )
       return
     }
 
